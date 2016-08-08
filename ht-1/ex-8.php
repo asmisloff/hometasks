@@ -20,4 +20,4 @@ while ($i-- > 0) {
 }
 
 echo "<br> В прямом порядке: " . $imp_str = mb_substr($imp_str, 0, -1, "utf-8");
-echo "<br>В обратном порядке: " . $rev_imp_str = mb_substr($rev_imp_str, 0, -1, "cp-1251");
+echo "<br>В обратном порядке: " . $rev_imp_str = mb_substr($rev_imp_str, 0, -1, "utf-8");
