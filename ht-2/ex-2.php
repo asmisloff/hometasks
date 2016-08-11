@@ -18,8 +18,7 @@ function apply($op, $arg1, $arg2) {
     } 
     else {
         return NULL;
-    }
-        
+    } 
 }
 
 function reduce($arr, $op, $initial_value) {

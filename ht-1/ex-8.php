@@ -1,4 +1,4 @@
-<meta charset ="utf-8">
+﻿<meta charset ="utf-8">
 
 <?php
 $str = "Буря мглою небо кроет";
