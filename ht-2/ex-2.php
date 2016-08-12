@@ -36,4 +36,4 @@ function reduce($arr, $op, $initial_value) {
 }
 
 $test = [1, 2, 3, 4, 5, 6, 8];
-echo $acc = reduce($test, "**", 0.99999);
+echo $acc = reduce($test, "**", 0.99888);
