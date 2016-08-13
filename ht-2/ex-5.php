@@ -11,17 +11,18 @@ function to_utf_8($str) {
 function str_to_arr($s) {
     $arr = str_split(to_1251($s));
     setlocale(LC_ALL, 'ru_RU.CP1251', 'rus_RUS.CP1251', 'Russian_Russia.1251');
-
-    return
-    array_map(
-	function($ch) {
-            return strtolower($ch);
-        },
-	array_filter(
-            $arr,
-	    function($ch) {
-                return ctype_alnum($ch);
-            }));
+    
+    $res_arr = array_map(
+                    function($ch) {
+                        return strtolower($ch);
+                    },
+                    array_filter(
+                        $arr,
+                        function($ch) {
+                            return ctype_alnum($ch);
+                        }));
+    array_splice($res_arr, 0, 0);
+    return $res_arr;
 }
 
 function is_palindrome($s) {
@@ -35,8 +36,18 @@ function is_palindrome($s) {
     return true;
 }
 
+function check_the_string($s) {
+    $res = is_palindrome($s);
+    if ($res) {
+        echo "Строка $s - палиндром. <br>";
+    }
+    else {
+        echo "Строка $s - <b> не </b> палиндром. <br>";
+    }
+}
+
 /* ------------------------------------------------------------------------------------ */
 /* ----------------------------------------test---------------------------------------- */
 /* ------------------------------------------------------------------------------------ */
-//$s = "АБWБА";
-//var_dump(is_palindrome($s));
+//check_the_string("аб, Б А!!");
+//check_the_string("АБWБВ");
