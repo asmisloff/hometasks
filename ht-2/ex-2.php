@@ -1,12 +1,11 @@
 <meta charset="utf-8">
 <?php
-
 $operators = [
     "+" => function($x, $y) {return $x + $y;},
     "-" => function($x, $y) {return $x - $y;},
     "/" => function($x, $y) {return $x / $y;},
     "*" => function($x, $y) {return $x * $y;},
-    "**" => function($x, $y) {return pow($x, $y);},
+    "**" => function($x, $y) {return pow($x, $y);}
 ];
 
 function apply($op, $arg1, $arg2) {
