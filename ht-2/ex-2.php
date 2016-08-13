@@ -21,9 +21,10 @@ function apply($op, $arg1, $arg2) {
     } 
 }
 
-function reduce($arr, $op, $initial_value) {
+function reduce($arr, $op) {
     $err_msg = "REDUCE -- не числовой элемент во входном массиве -- '$num' <br>";
-    foreach ($arr as $num) {
+    $initial_value = $arr[0];
+    foreach (array_slice($arr, 1) as $num) {
         $initial_value = apply($op, $initial_value, $num);
 	if (is_string($initial_value)) {
 	    return $initial_value;
@@ -36,4 +37,4 @@ function reduce($arr, $op, $initial_value) {
 }
 
 $test = [1, 2, 3, 4, 5, 6, 8];
-echo $acc = reduce($test, "**", 0.99888);
+echo $acc = reduce($test, "-");
