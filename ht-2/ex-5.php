@@ -8,46 +8,40 @@ function to_utf_8($str) {
     return iconv("cp1251", "utf-8", $str);
 }
 
-function str_to_arr($s) {
-    $arr = str_split(to_1251($s));
-    setlocale(LC_ALL, 'ru_RU.CP1251', 'rus_RUS.CP1251', 'Russian_Russia.1251');
-    
-    $res_arr = array_map(
-                    function($ch) {
-                        return strtolower($ch);
-                    },
-                    array_filter(
-                        $arr,
-                        function($ch) {
-                            return ctype_alnum($ch);
-                        }));
-    array_splice($res_arr, 0, 0);
-    return $res_arr;
-}
-
 function is_palindrome($s) {
-    $ar = str_to_arr($s);
-    $rar = array_reverse($ar);
-    for ($i = 0; $i < count($ar); $i++) {
-        if (strcmp($ar[$i], $rar[$i]) != 0) {
+//    $s must be in single byte coding
+    $ls = strtolower($s);
+    $len = strlen($ls);
+    $i = 0; $j = $len - 1;
+    while ($i < $j) {
+        while (!ctype_alnum($ls[$i])) {
+            $i++;
+        }
+        while (!ctype_alnum($ls[$j])) {
+            $j--;
+        }
+        if ($ls[$i] != $ls[$j]) {
             return false;
         }
+        $i++;
+        $j--;
     }
     return true;
 }
 
 function check_the_string($s) {
-    $res = is_palindrome($s);
+    $res = is_palindrome(to_1251($s));
     if ($res) {
-        echo "Строка $s - палиндром. <br>";
+        echo "Строка \"$s\" - палиндром. <br>";
     }
     else {
-        echo "Строка $s - <b> не </b> палиндром. <br>";
+        echo "Строка \"$s\" - <b> не </b> палиндром. <br>";
     }
 }
 
 /* ------------------------------------------------------------------------------------ */
 /* ----------------------------------------test---------------------------------------- */
 /* ------------------------------------------------------------------------------------ */
-//check_the_string("аб, Б А!!");
-//check_the_string("АБWБВ");
+check_the_string("аб, Б А!!");
+check_the_string("АБWБВ");
+check_the_string("Я иду с мечем судия");
