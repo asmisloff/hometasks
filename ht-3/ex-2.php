@@ -34,7 +34,8 @@ function json_diff($a1, $a2, $upper_keys = []) {
     
     $print_entry = function($str_upper_keys, $key, $a1, $a2) {
 	if ($a1[$key] != $a2[$key]) {
-	    echo "<b> $str_upper_keys => $a1[$key] ----- $a2[$key] ----- Difference </b><br>";
+	    echo "<b> $str_upper_keys => $a1[$key] ----- $a2[$key]"
+               . " ----- Difference </b><br>";
 	}
 	else {
 	    echo "$str_upper_keys => $a1[$key] ----- $a2[$key] <br>";
