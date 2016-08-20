@@ -4,7 +4,13 @@ header('Content-Type: text/html; charset=utf-8');
 $xml_path = "./data.xml";
 $xml = simplexml_load_file($xml_path);
 
-function to_array(SimpleXMLElement $elt) {
+function pretty_print($a) {
+    echo "<pre>";
+    print_r($a);
+    echo "</pre>";
+}
+
+function to_array($elt) {
     $arr = [];
     foreach ($elt as $key => $value) {
         if ($value->count() > 1) {
@@ -38,11 +44,12 @@ function print_array($arr, $header) {
 
 $order_header = to_array($xml->attributes());
 $order_details = to_array($xml);
-echo "<h2> Заказ № $order_header[PurchaseOrderNumber] "
-        . "от $order_header[OrderDate] </h2>";
-print_array($order_details["Shipping"], "Получатель");
-print_array($order_details["Billing"], "Отправитель");
-foreach ($order_details["Items"] as $part_number => $details) {
-    print_array($details, "Заказ № $part_number");
-print_array($order_details["DeliveryNotes"], "Примечание");
-}
+
+//echo "<h2> Заказ № $order_header[PurchaseOrderNumber] "
+//        . "от $order_header[OrderDate] </h2>";
+//print_array($order_details["Shipping"], "Получатель");
+//print_array($order_details["Billing"], "Отправитель");
+//foreach ($order_details["Items"] as $part_number => $details) {
+//    print_array($details, "Заказ № $part_number");
+//}
+//print_array($order_details["DeliveryNotes"], "Примечание");
