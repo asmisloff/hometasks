@@ -4,7 +4,10 @@ header('Content-Type: text/html; charset=utf-8');
 $xml_path = "./data.xml";
 $xml = simplexml_load_file($xml_path);
 
-function pretty_print($a) {
+function pretty_print($a, $header = "") {
+    if ($header != "") {
+	echo "<b> $header </b> <br>";
+    }
     echo "<pre>";
     print_r($a);
     echo "</pre>";
