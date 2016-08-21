@@ -34,11 +34,7 @@ function json_diff($a1, $a2, $upper_keys = []) {
     
     $print_entry = function($str_upper_keys, $key, $a1, $a2) {
 	if ($a1[$key] != $a2[$key]) {
-	    echo "<b> $str_upper_keys => $a1[$key] ----- $a2[$key]"
-               . " ----- Difference </b><br>";
-	}
-	else {
-	    echo "$str_upper_keys => $a1[$key] ----- $a2[$key] <br>";
+	    echo "<b> $str_upper_keys => $a1[$key] ----- $a2[$key]</b><br>";
 	}
     };
 
@@ -61,7 +57,10 @@ function json_diff($a1, $a2, $upper_keys = []) {
 
 write_as_json($data, "output.json");
 $object = read_json("output.json");
-$object->Shipping->Name = "John Smith";
+$lot = rand(0, 1);
+if ($lot == 0) {
+    $object->Shipping->Name = "John Smith";
+}
 write_as_json($object, "output2.json");
 
 $a1 = read_json("output.json", true);
