@@ -3,7 +3,7 @@
 $operators = [
     "+" => function($x, $y) {return $x + $y;},
     "-" => function($x, $y) {return $x - $y;},
-    "/" => function($x, $y) {return $x / $y;},
+    "/" => function($x, $y) {return $y == 0 ? "inf" : $x / $y;},
     "*" => function($x, $y) {return $x * $y;},
     "**" => function($x, $y) {return pow($x, $y);}
 ];
@@ -17,7 +17,7 @@ function apply($op, $arg1, $arg2) {
     } 
     else {
         return $err_msg;
-    } 
+    }
 }
 
 function reduce($arr, $op) {
@@ -35,5 +35,5 @@ function reduce($arr, $op) {
     return $initial_value;
 }
 
-$test = [1, 2, 3, 4, 5, 6, 8];
-echo $acc = reduce($test, "-");
+$test = [1, 2, 3, 4, 5, 0, 8];
+echo $acc = reduce($test, "/");
