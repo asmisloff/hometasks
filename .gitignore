@@ -47,4 +47,9 @@ Temporary Items
 .apdisk
 /nbproject/private/
 /ht-2/another_hello.txt
+/ht-2/global.py
 /ht-2/test.txt
+/ht-3/07.zip
+/ht-3/output.json
+/ht-3/output2.json
+/.gitignore
