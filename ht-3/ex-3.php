@@ -45,7 +45,7 @@ function read_csv($filename) {
 /* $a = make_array(100);
  * pretty_print($a, "Исхдный массив");
  * write_csv("csv-test.csv", $a);
- * 
+ *
  * $data = read_csv("csv-test.csv");
  * pretty_print($data, "Массив, восстановленный из csv файла");
  * echo "Сумма четных чисел: " .
