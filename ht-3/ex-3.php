@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once("ex-1.php");
 
 function make_array($n) {

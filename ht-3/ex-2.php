@@ -31,7 +31,7 @@ function read_json($fname, $assoc = false, $len = 1000) {
 }
 
 function json_diff($a1, $a2, $upper_keys = []) {
-    
+
     $print_entry = function($str_upper_keys, $key, $a1, $a2) {
 	if ($a1[$key] != $a2[$key]) {
 	    echo "<b> $str_upper_keys => $a1[$key] ----- $a2[$key]</b><br>";
@@ -43,7 +43,7 @@ function json_diff($a1, $a2, $upper_keys = []) {
             $_upper_keys = array_slice($upper_keys, -1);
             array_push($_upper_keys, $key);
             json_diff($a1[$key], $a2[$key], $_upper_keys);
-        } 
+        }
         else {
             if ($upper_keys) {
                 $str_upper_keys = implode("->", $upper_keys) . "->$key";
@@ -68,4 +68,4 @@ $a2 = read_json("output2.json", true);
 
 pretty_print($a1);
 pretty_print($a2);
-json_diff($a1, $a2);
+json_diff($a1, $a2
