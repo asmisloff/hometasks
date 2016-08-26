@@ -68,4 +68,4 @@ $a2 = read_json("output2.json", true);
 
 pretty_print($a1);
 pretty_print($a2);
-json_diff($a1, $a2
+json_diff($a1, $a2);
