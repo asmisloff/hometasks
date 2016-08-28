@@ -1,7 +1,7 @@
 <meta charset ="utf-8">
 <html>
 <?php
-$name = "Алексей";
+$login = "Алексей";
 $age = 32;
 
 $rem = $age % 10;
@@ -14,7 +14,7 @@ elseif ($rem > 1 && $rem < 5)
 else
     $years = "лет";
 
-echo "Меня зовут $name <br>";
+echo "Меня зовут $login <br>";
 echo "Мне $age $years <br>";
 
 echo "\"!|\\/'\"\\";
