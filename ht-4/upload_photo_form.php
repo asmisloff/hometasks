@@ -1,6 +1,7 @@
 <html>
   <meta charset="utf-8">
   <body>
+    <a href="./index.html"> На главную </a>
     <form action="./upload_photo.php"
           method="post"
           enctype="multipart/form-data">

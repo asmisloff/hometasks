@@ -6,6 +6,7 @@
     }
   </style>
   <body>
+    <a href="./index.html"> На главную </a>
     <form action="delete_photos.php" method="post">
       <table>
           <?php
@@ -17,7 +18,7 @@
           function print_row($n, $filename) {
               echo "<tr> <td>"
               . "<img src=\"./photos/$filename\"> </td>"
-              . "<td> <input type='checkbox' name='cb-$n'> </td> </tr>";
+              . "<td> <input type='checkbox' name='$n'> </td> </tr>";
           }
 
           function get_photo_list($username) {
@@ -27,20 +28,28 @@
                       . "WHERE `NAME` = '$username'";
               $res = $cn->query($query);
               while ($row = mysqli_fetch_row($res)) {
-                  array_push($filenames, $row);
+                  array_push($filenames, $row[0]);
               }
               return $filenames;
           }
 
-          $n = 0;
           $photo_list = get_photo_list($_SESSION["name"]);
-          foreach ($photo_list as $arr) {
-              print_row($n++, $arr[0]);
+          if (count($photo_list) == 0) {
+              echo "<br> У вас нет своих фотографий, а чужие удалять нельзя.";
+          }
+          else {
+              for ($n = 0; $n < count($photo_list); $n++) {
+                  print_row($n, $photo_list[$n]);
+              }
           }
           $_SESSION["photos_for_deletion"] = $photo_list;
           ?>
       </table>
-      <input type="submit" value="Удалить выбранные">
+      <?php
+      if (count($photo_list) != 0) {
+          echo '<input type="submit" value="Удалить выбранные">';
+      }
+      ?>
     </form>
   </body>
 </html>

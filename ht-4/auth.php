@@ -55,4 +55,5 @@ if ($error == "") {
 else {
     echo $error;
 }
+echo '<a href="./index.html"> На главную </a>';
 //exit;

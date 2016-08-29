@@ -13,9 +13,10 @@ function print_photos() {
 if ($_SESSION["name"] == "") {
     echo "Вы не авторизованы, ";
     echo "<a href='auth_form.php'> авторизуйтесь </a>";
-    echo "или <a href='./register_user_form.html'> зарегистрируйтесь </a> ";
+    echo "или <a href='./register_user_form.php'> зарегистрируйтесь </a> ";
 }
 else {
     echo "Добро пожаловать, $_SESSION[name]";
     print_photos();
 }
+echo '<br><a href="./index.html"> На главную </a>';

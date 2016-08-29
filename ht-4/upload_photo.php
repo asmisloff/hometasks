@@ -38,7 +38,7 @@ else {
         $filename = $file["name"];
         $conn = new mysqli(HOST, USER, PWD, DB);
         $conn->query("INSERT INTO `photos` (name, filename)"
-                . "VALUES ('$user_name', '$filename')");
+                   . "VALUES ('$user_name', '$filename')");
         $conn->close();
         header("Location: http://hometasks/ht-4/view_photos.php");
     }

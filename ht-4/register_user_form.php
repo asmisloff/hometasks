@@ -8,6 +8,7 @@
   <body>
 
     <form action="./register_user.php" method="post">
+      <a href="./index.html"> На главную </a>
       <table>
         <tr>
           <td> Имя: </td>

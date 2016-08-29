@@ -6,6 +6,7 @@
     }
   </style>
   <body>
+    <a href="./index.html"> На главную </a>
     <form action="./auth.php" method="post">
       <table>
         <tr>
