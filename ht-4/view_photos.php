@@ -1,13 +1,26 @@
 <?php
+
 session_start();
+?>
+<style>
+  img {
+      height: 300px;
+      padding: 10px;
+      float: left;
+  }
+  div {
+      overflow: auto;
+      overflow-x: hidden;
+      overflow-y: hidden;
+  }
+</style>
+<?php
 
 function print_photos() {
     $files = scandir("./photos");
-    echo "<ul>";
     foreach (array_slice($files, 2) as $file) {
-        echo "<li> <a href='photos/$file'> $file </a> </li>";
+        echo "<a href='photos/$file'> <img src='photos/$file'> </a>";
     }
-    echo "</ul>";
 }
 
 if ($_SESSION["name"] == "") {
@@ -17,6 +30,9 @@ if ($_SESSION["name"] == "") {
 }
 else {
     echo "Добро пожаловать, $_SESSION[name]";
+    echo "<div>";
     print_photos();
+    echo "</div>";
 }
-echo '<br><a href="./index.html"> На главную </a>';
+echo '<div> <a href="./index.html"> На главную </a> </div>';
+?>
