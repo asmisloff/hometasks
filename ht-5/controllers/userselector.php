@@ -31,7 +31,7 @@ class Controller_UserSelector extends Controller_Base {
         }
         else {
             echo "Вы не авториованы <br>";
-            onTheMainPage();
+            toTheMainPage();
         }
     }
 

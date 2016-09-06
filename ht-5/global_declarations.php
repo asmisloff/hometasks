@@ -14,6 +14,6 @@ function a($action, $text) {
     echo "<a href=" . ROOT . "?route=$action > $text </a> <br>";
 }
 
-function onTheMainPage() {
+function toTheMainPage() {
     echo "<a href=" . ROOT . "> На главную </a> <br>";
 }

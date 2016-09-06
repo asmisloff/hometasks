@@ -84,14 +84,14 @@ class HT4Model {
         if (!$res) {
             echo "Ошибка базы данных. <br>"
             . "Не удалось добавить пользователя $login";
-            onTheMainPage();
+            toTheMainPage();
             return false;
         }
 
         $uploaded = move_uploaded_file($photo["tmp_name"], "./photos/" . $photo["name"]);
         if (!$uploaded) {
             echo "Не удалось загрузить фотографию";
-            onTheMainPage();
+            toTheMainPage();
             return true;
         }
 

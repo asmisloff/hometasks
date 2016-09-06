@@ -23,7 +23,7 @@ class Controller_Reg extends Controller_Base {
         
         if (!$this->is_image($photo)) {
             echo "$photo is not an image <br>";
-            onTheMainPage();
+            toTheMainPage();
             return;
         }
 
@@ -33,12 +33,12 @@ class Controller_Reg extends Controller_Base {
             $res = $m->addUser($login, $pwd, $age, $about, $photo);
             if ($res) {
                 echo "Добавлен пользователь $login <br>";
-                onTheMainPage();
+                toTheMainPage();
             }
         }
         else {
             echo "Пользователь $login уже существует <br>";
-            onTheMainPage();
+            toTheMainPage();
         }
     }
 

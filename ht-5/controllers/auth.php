@@ -31,7 +31,7 @@ class Controller_Auth extends Controller_Base {
             $_SESSION["user"] = null;
         }
         echo "Привет, $login <br>";
-        onTheMainPage();
+        toTheMainPage();
     }
 
     public function logOut() {
@@ -42,7 +42,7 @@ class Controller_Auth extends Controller_Base {
             session_abort();
             echo "Пока, $login <br>";
         }
-        onTheMainPage();
+        toTheMainPage();
     }
 
 }
